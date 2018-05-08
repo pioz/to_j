@@ -1,0 +1,4 @@
+<% 10_000.times do |n| %>
+author_<%= n %>:
+  name: <%= Faker::Name.first_name %>
+<% end %>

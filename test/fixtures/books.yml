@@ -1,0 +1,6 @@
+<% 100_000.times do |n| %>
+book_<%= n %>:
+  title: <%= Faker::Book.title %>
+  author: author_<%= rand(1..10_000) %>
+  #author: author_<%= n %>
+<% end %>
