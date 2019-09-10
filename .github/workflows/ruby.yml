@@ -1,38 +1,21 @@
 name: Test
 on: [push]
 jobs:
-  install_deps:
+  CI:
     runs-on: ubuntu-latest
     steps:
     - name: Install dependencies
       run: |
-        sudo apt-get install libsqlite3-dev  
-  install_ruby:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Ruby 2.6
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 2.6.x
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@v1
-  bundle:
-    runs-on: ubuntu-latest
-    needs:
-      - install_deps
-      - install_ruby
-      - checkout
-    steps:
-      - name: Bundle install
-        run: |
-          gem install bundler
-          bundle install --jobs 4 --retry 3
-  test:
-    runs-on: ubuntu-latest
-    needs: bundle
-    steps:
-      - name: rake test
-        run: bundle exec rake test
+        sudo apt-get install libsqlite3-dev
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Git checkout
+      uses: actions/checkout@v1
+    - name: Bundle install
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+    - name: Bundle install
+      run: bundle exec rake test
