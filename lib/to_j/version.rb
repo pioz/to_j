@@ -1,4 +1,4 @@
 # :nocov:
 module ToJ
-  VERSION = '0.4.0'.freeze
+  VERSION = '0.2.0'.freeze
 end
