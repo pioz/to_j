@@ -1,5 +1,8 @@
 # ToJ
 
+[![Build Status](https://travis-ci.org/pioz/to_j.svg?branch=master)](https://travis-ci.org/pioz/to_j)
+[![Coverage Status](https://coveralls.io/repos/github/pioz/to_j/badge.svg?branch=master)](https://coveralls.io/github/pioz/to_j?branch=master)
+
 ToJ is a helpful gem that allows you to build json from your active model
 object or collection. ToJ allows you to define a Serializer with many methods
 called `views`. A view is a method that describe how to generate json. So
