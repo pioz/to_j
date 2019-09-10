@@ -1,7 +1,7 @@
 # require 'simplecov'
 # SimpleCov.start 'rails'
 require 'coveralls'
-Coveralls.wear!
+Coveralls.wear! 'rails'
 
 require 'active_model_serializers'
 require 'byebug'
