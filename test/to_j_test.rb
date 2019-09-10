@@ -4,7 +4,6 @@ class ToJ::Test < ActiveSupport::TestCase
   test 'exist ToJ module' do
     assert_kind_of Module, ToJ
     assert_not_nil ToJ::VERSION
-    assert_equal '0.4.0', ToJ::VERSION
   end
 
   test 'author default json' do
