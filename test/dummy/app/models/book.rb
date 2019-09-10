@@ -2,7 +2,7 @@ class Book < ApplicationRecord
   include ToJ
   belongs_to :author
 
-  def good_title
+  def nice_title
     self.title.titleize
   end
 end

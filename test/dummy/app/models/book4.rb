@@ -2,7 +2,7 @@ class Book4 < ApplicationRecord
   self.table_name = :books
   belongs_to :author4
 
-  def good_title
+  def nice_title
     self.title.titleize
   end
 
@@ -14,8 +14,7 @@ class Book4 < ApplicationRecord
 
   def to_builder
     Jbuilder.new do |json|
-      json.(self, :id, :title, :good_title)
+      json.(self, :id, :title, :nice_title)
     end.attributes!
   end
-  
 end

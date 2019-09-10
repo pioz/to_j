@@ -1,11 +1,9 @@
 module BookSerializer
-
-  def default(obj, options)
-    self.(obj, :id, :title, :good_title)
+  def default(obj, _options)
+    self.extract!(obj, :id, :title, :nice_title)
   end
 
-  def only_title(obj, options)
-    self.(obj, :title)
+  def only_title(obj, _options)
+    self.extract!(obj, :title)
   end
-
 end

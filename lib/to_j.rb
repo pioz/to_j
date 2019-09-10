@@ -1,4 +1,4 @@
-require "to_j/railtie"
+require 'to_j/railtie'
 
 module ToJ
   extend ActiveSupport::Concern
@@ -11,15 +11,19 @@ module ToJ
         @json = Jbuilder.new
         yield(self) if block_given?
       end
-      def method_missing(method, *args, &block)
-        @json.__send__(method, *args, &block)
+
+      # rubocop: disable Style/MethodMissingSuper
+      # rubocop: disable Style/MissingRespondToMissing
+      def method_missing(method_name, *args, &block)
+        @json.__send__(method_name, *args, &block)
       end
+      # rubocop: enable all
     end
     Object.const_set("#{klass_name}JbuilderProxy", proxy)
 
     def self.to_j(options = {})
       Jbuilder.new do |json|
-        json.array!(current_scope.map { |obj| obj.to_j(options) })
+        json.array!(current_scope.map { |obj| obj.to_j(options) }) # test
       end.attributes!
     end
 
@@ -31,10 +35,9 @@ module ToJ
       elsif view != :default
         raise "Serializer view :#{view} does not exist!"
       else
-        json.(self, *self.class.column_names)
+        json.call(self, *self.class.column_names)
       end
       return json.attributes!
     end
-    
   end
 end
