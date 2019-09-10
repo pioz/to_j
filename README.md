@@ -1,9 +1,9 @@
 # ToJ
 
-ToJ is a helpful gem that allow you to build json from your active model
-object or collection. ToJ allow you to define a Serializer with many methods
-called `views`. A view is a method that describe how to generate the json. So
-if you want generate a json with only the author data you can use
+ToJ is a helpful gem that allows you to build json from your active model
+object or collection. ToJ allows you to define a Serializer with many methods
+called `views`. A view is a method that describe how to generate json. So
+if you want to generate a json with only the author data you can use
 `author.to_j`, but if you want add also the books you can use
 `author.to_j(view: :with_books)`.
 
@@ -119,7 +119,7 @@ end
 ```
 
 If a serializer or `default` method is not defined all table columns will be
-added in the json (default Rails behaviour).
+added in the json (default Rails behavior).
 
 ### Under the Hood there is Jbuilder
 
