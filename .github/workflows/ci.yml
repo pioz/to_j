@@ -1,7 +1,7 @@
-name: Test
+name: CI
 on: [push]
 jobs:
-  CI:
+  run:
     runs-on: ubuntu-latest
     steps:
     - name: Install dependencies
@@ -17,5 +17,5 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-    - name: Bundle install
+    - name: Run test suite
       run: bundle exec rake test
