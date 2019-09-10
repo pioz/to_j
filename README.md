@@ -52,7 +52,7 @@ module AuthorSerializer
 
   def default(author, options = {})
     self.extract!(author, :id, :name)
-    if options[:user].try(:admin?)
+    if options[:user]&.admin?
       self.extract!(author, :email)
     end
   end
@@ -60,7 +60,7 @@ module AuthorSerializer
   def with_books(author, options = {})
     default(author, options)
     self.books do
-      self.array!(author.books.map{|book| book.to_j(options)})
+      self.array!(author.books.map { |book| book.to_j(options) })
     end
   end
 
