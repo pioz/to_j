@@ -8,6 +8,7 @@ if you want generate a json with only the author data you can use
 `author.to_j(view: :with_books)`.
 
 ## Installation
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -15,11 +16,13 @@ gem 'to_j'
 ```
 
 And then execute:
+
 ```bash
 $ bundle
 ```
 
 Or install it yourself as:
+
 ```bash
 $ gem install to_j
 ```
@@ -93,7 +96,7 @@ Author.limit(100).to_j
 Author.limit(100).to_j(view: :with_books)
 # [{"id"=>1028680, "name"=>"Kristopher", "books"=>[{"id"=>192756823, "title"=>"If not now, when?", "nice_title"=>"If Not Now, When?"}, {...}, ...]
 Book.first.to_j(view: :only_title)
-# {"title"=>"Jesting pilate"} 
+# {"title"=>"Jesting pilate"}
 ```
 
 or in your controllers:
@@ -121,7 +124,7 @@ end
 If a serializer or `default` method is not defined all table columns will be
 added in the json (default Rails behaviour).
 
-### Under the Hood there is Jbuilder
+### Under the hood there is Jbuilder
 
 The `self` object in serializer's methods are a Jbuilder object so you can use
 the [Jbuilder](https://github.com/rails/jbuilder/) DSL to create and
@@ -130,9 +133,10 @@ personalized your json views.
 ## Performance
 
 In the `test` directory I've write a simple benchmark to check the performance of this gem with other common serializers:
-* [as_json](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json)
-* [active_model_serializers](https://github.com/rails-api/active_model_serializers/)
-* [Jbuilder](https://github.com/rails/jbuilder/)
+
+- [as_json](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json)
+- [active_model_serializers](https://github.com/rails-api/active_model_serializers/)
+- [Jbuilder](https://github.com/rails/jbuilder/)
 
 Here the results to build a json of `10_000` authors with a total of `100_000` books:
 
@@ -150,4 +154,5 @@ jbuilder  9.940000   0.380000  10.320000 ( 10.305331)
 ```
 
 ## License
+
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
